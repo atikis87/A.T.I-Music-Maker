@@ -1,0 +1,29 @@
+{
+  "UserList": [
+    {
+      "UserName": "Atah",
+      "Password": "AtahPass",
+      "Email": "Atah@gmail.com"
+    },
+    {
+      "UserName": "David",
+      "Password": "DavidPass",
+      "Email": "David@gmail.com"
+    },
+    {
+      "UserName": "user",
+      "Password": "pass",
+      "Email": "email"
+    },
+    {
+      "UserName": "WIFI Alex",
+      "Password": "1233",
+      "Email": "wifi@vincenz.at"
+    },
+    {
+      "UserName": "atika",
+      "Password": "heloka",
+      "Email": "hello@grefrl.at"
+    }
+  ]
+}

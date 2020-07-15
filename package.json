@@ -1,0 +1,38 @@
+{
+  "name": "a.t.i-music-maker",
+  "version": "1.0.0",
+  "description": "desktop music maker application \"school project\"",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "animejs": "^3.1.0",
+    "bootstrap": "^4.4.1",
+    "custom-electron-titlebar": "^3.2.2-hotfix62",
+    "express": "^4.17.1",
+    "gsap": "^3.0.5",
+    "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "minimist": "^1.2.5",
+    "popper.js": "^1.16.1",
+    "sqlite3": "^5.0.0",
+    "tone": "^13.8.25"
+  },
+  "devDependencies": {
+    "electron": "^9.1.0",
+    "electron-builder": "^22.3.2",
+    "electron-rebuild": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ati-radeone/A.T.I-Music-Maker.git"
+  },
+  "author": "Attila Kiss",
+  "license": "Apache License Version 2.0",
+  "bugs": {
+    "url": "https://github.com/ati-radeone/A.T.I-Music-Maker/issues"
+  },
+  "homepage": "https://github.com/ati-radeone/A.T.I-Music-Maker#readme"
+}

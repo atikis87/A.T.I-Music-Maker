@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
+/*
+* valid for everything index.html-------------------------------------
+*/ 
+
+html, body {
+  margin: 0%;
+  padding: 0%;
+  width: 100%;
+  height: 100vh;
+  background: url(../../images/hero3.jpg) no-repeat 50% 50%;
+  background-size: cover;
+}
+
+  /*
+  * Loading screen letter animation--------------------------------------------------------------
+  */
+  
+.welcome-section{ /* #preloader */
+width:100%;
+height:100vh;
+background:#101010;
+z-index:1999;
+overflow:hidden;
+position:fixed;
+}
+  
+.content-wrap { /* .p */
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content-wrap span{
+  color:#000;
+
+}
+
+
+.fly-in-text{
+  list-style:none;
+}
+.fly-in-text li{
+  display:inline-block;
+  margin-right:20px;
+  font-size:5em;
+  font-family: 'Permanent Marker', cursive;
+  color:#fff;
+  opacity: 1;
+  transition: all 3s ease;
+}
+
+.fly-in-text li:nth-child(5){
+  margin-right: 0;
+}
+
+.content-hidden .fly-in-text li {opacity:0;}
+.content-hidden .fly-in-text li:nth-child(1){ transform: translate3d(-60px, 0, 0); }
+.content-hidden .fly-in-text li:nth-child(2){ transform: translate3d(-30px, 0, 0); }
+.content-hidden .fly-in-text li:nth-child(3){ transform: translate3d(-0px, 0, 0); }
+.content-hidden .fly-in-text li:nth-child(4){ transform: translate3d(30px, 0, 0); }
+.content-hidden .fly-in-text li:nth-child(5){ transform: translate3d(60px, 0, 0); }
+
+
+.content-wrap .title{
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  color:#fff4e3;
+  text-align: center;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  letter-spacing: 2px;
+}
+
+
+/*
+* Secound screen ----------------------------------------------------------
+*/
+
+.header {
+  position: absolute;
+  top: 46%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.ml7 {
+  position: relative;
+  font-weight: 900;
+  font-size: 3.7em;
+}
+
+.ml7 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml7 .letter {
+  transform-origin: 0 100%;
+  display: inline-block;
+  line-height: 1em;
+  padding-left:5px;
+}
+
+
+h1 {
+  color: #95efff;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: bolder !important;
+  font-size: 46px !important;
+  margin-bottom: 0px;
+  text-transform: uppercase !important;
+}
+
+/* where the depreciation is----------------------------- */
+
+#tagline  {
+  width: 640px;
+}
+
+/* all paragraph  -------------------------------------- */
+
+p {
+  color: #b1b1b1;
+  font-weight: 200;
+  font-family: "Roboto";
+  line-height: 28px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/*----------------------------------------------------- */
+
+.buttons {
+  margin-top: 40px;
+}
+
+button {
+  margin-right: 10px !important;
+  padding: 14px 30px;
+  border: none;
+  color: #fff;
+  font-size: 12px !important;
+  letter-spacing: 4px;
+  font-weight: 300;
+}
+
+#one {
+  cursor: pointer;
+  background: none;
+  border: .3pt solid #ffffff4d;
+}
+
+#two {
+  cursor: pointer;
+  background: linear-gradient(135deg, #6adb9d 0%, #17a758 100%);
+}
+
+
+/*
+* Login and Password field----------------------------------------------------------
+*/
+
+.inputs {
+	width: 100%;
+	padding-top: 6px;
+}
+.input {
+	position: relative;
+	margin-bottom: 20px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+
+
+.input input {
+	width: 100%;
+	font-size: 14px;
+	background: #1C1C1C;
+  border-radius: 8px;
+  box-sizing: border-box;
+	padding: 16px 18px 16px 51px;
+	color: #dcdcdc;
+}
+
+.input img {
+	width: 15px;
+	position: absolute;
+	left: 19px;
+}
+
+.checkbox {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
+
+.checkbox input {
+	position: absolute;
+	opacity: 0;
+	height: 0;
+	width: 0;
+}
+
+.checkbox span {
+	display: flex;
+	align-items: center;
+	color: rgb(110,110,110);
+	font-size: 16px;
+	user-select: none;
+}
+
+.checkbox span:before {
+	content: "";
+	width: 22px;
+	height: 22px;
+	border-radius: 6px;
+	margin-right: 16px;
+	background-color: #1C1C1C;
+}
+
+.checkbox:hover input ~ span:before {
+	background-color: rgb(50,50,50);
+}
+
+.checkbox input:checked ~ span:before {
+	background-image: url(../../images/svg/checked.png);
+	background-size: cover;
+}
+
+
+#form{
+  top:200px;
+  left:340px;
+  width: 300px;
+  color:#f0ecff;
+  border-radius:  20px;
+  position:relative;
+  background:#5a5b616c;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+}
+
+
+#form button{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
+  outline:0;
+  background: linear-gradient(135deg, #6adb9d 0%, #17a758 100%);
+  width:100;
+  border:0;
+  padding:15px;
+  color:#ffff;
+  cursor: pointer;
+}
+
+#form button:hover,.form button:active{
+  background:#17a758;
+}
+
+#form.message{
+  margin:15px;
+  color:#f0f8ff;
+  font-size:12px;
+}
+
+.message{
+  color:#f0f8ff;
+}
+
+#form .message a{
+  color:#4CAF50;
+  text-decoration: none;
+}
+
+#form .register-form{
+  display:none;
+}

@@ -1,0 +1,258 @@
+/*
+* CHOOSE FOR THE INSTRUMENT---------------------------------------------------------------------------------------------------------------
+*/
+
+/* The Modal (background) */
+.instrumentWindow{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #000000; /* Fallback color */
+    background-color: #00000066; /* Black w/ opacity */
+}
+
+  /* Inhalt */
+  .instrument-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 #00000033,0 6px 20px 0 #00000030;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+
+  
+  .modal-header {
+  align-items: center;
+  border-bottom: 1px solid #d3dce2;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+
+
+
+
+.modal-header h2 {
+  font-size: 24px;
+  margin: 0;
+  max-width: 376px;
+}
+
+  .modal-body {
+    background-color: #f1f4f6;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 24px;
+    text-align: center;
+}
+
+/* Content ----------------------------------------------------------- */
+
+.new-instruments {
+  align-items: start;
+  display: grid;
+  grid-gap: 32px 0;
+  grid-template-columns: repeat(5,180px);
+}
+
+/* Choose instrument------------------------------------ */
+
+.new-types {
+  cursor: pointer;
+  text-align: center;
+  width: 180px;
+}
+
+
+.new-type-illustration{
+  align-items: center;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 130px;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: opacity .3s ease-in-out;
+  width: 130px;
+}
+
+.instrument-h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+.new-type-background {
+  background: linear-gradient(40deg,#020024 0%, #001f60 35%, #00d4ff 100%);
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* instruments --------------------------------------------------------------------- */
+
+#piano-instrument {
+  background-image: url(../../images/hidden/piano4X.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 76px;
+  width: 76px;
+}
+
+#violin-instrument {
+  background-image: url(../../images/hidden/violin2X.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 76px;
+  width: 76px;
+}
+
+#woodwind-instrument {
+  background-image: url(../../images/hidden/woodwinds2X.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 76px;
+  width: 76px;
+}
+
+#synth-instrument {
+  background-image: url(../../images/hidden/Synth2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 76px;
+  width: 76px;
+}
+/*
+* Footer -------------------------------------------------------------------
+*/
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-image: linear-gradient(222deg,#020024 0%, #001f60 35%, #00d4ff 100%);
+    color: white;
+  }
+
+
+  /*
+  * PERCUSSION HIDE FELD ----------------------------------------------------------------------
+  */
+
+
+  .percussionWindow{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 115; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #000000; /* Fallback color */
+    background-color: #00000066; /* Black w/ opacity */
+}
+
+  /* Content percussion */
+  .percussion-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 #00000033,0 6px 20px 0 #00000030;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+
+/* Percussion instrument --------------------------------------------------------------------- */
+
+#kit-percussion {
+  background-image: url(../../images/hidden/kit2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 76px;
+  width: 76px;
+}
+
+#conga-percussion {
+  background-image: url(../../images/hidden/conga2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 76px;
+  width: 76px;
+}
+
+#electronic-percussion {
+  background-image: url(../../images/hidden/mpc2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 76px;
+  width: 76px;
+}
+
+
+.modal-header .close2 {
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+
+  /* The Close Button */
+  .close2 {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close2:hover,
+  .close2:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }  

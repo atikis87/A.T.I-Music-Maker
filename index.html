@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="copyright" content="Attila Kiss" />
+        <title>A.T.I Music-Maker</title>
+        <meta name="description" content="A.T.I Music-Maker">
+        <meta name="author" content="Attila Kiss">
+        <link rel="stylesheet" href="resources/css/index.css">
+        <!-- -----------------------------------------automated web page progress bar---------------------------------------------- -->
+        <script src="ThirdParty/pace.js"></script>
+
+        <!-- It is a simple JavaScript animation library. It works with CSS properties, SVG, DOM attributes and JavaScript objects  -->
+        <script src="node_modules/animejs/lib/anime.min.js"></script>
+
+        <!-- ---------------------------With TweenMax you can animate any property of an object------------------------------------ -->
+        <script src="ThirdParty/TweenMax.min.js"></script>
+    </head>
+    <body>
+        <!-- 1 -------------------------------------------Loading field------------------------------------------------------------ -->  
+        <div class="welcome-section content-hidden">
+            <div class="content-wrap">
+                <ul class="fly-in-text">
+                    <li>A</li>
+                    <li>.</li>
+                    <li>T</li>
+                    <li>.</li>
+                    <li>I</li>
+                </ul>
+                <span class="title">Audio.Track.Inspiration</span>
+            </div>
+        </div>
+        <!-- 2 --------------------------------------------Welcome Field----------------------------------------------------------- -->    
+        <div class="header">
+            <h1 class="ml7" id="title">            
+                <span class="text-wrapper">
+                    <span class="letters">A.T.I Music Maker</span>
+                </span>
+            </h1>  
+            <p id="tagline" class="p1">
+                Dreaming of your own songs as chart hits? Do you constantly have new musical ideas that you'd like to make a reality as quickly
+                and easily as possible? A.T.I.-Music-Maker (Audio.Track.Inspiration) is exactly what you need.
+                </br>An application for composing and recording music!
+            </p>
+                </br>
+            <p id="tagline" class="p2">
+                Forget dry theory – just make music!
+            </p>
+            <div class="buttons">
+                <button id="one">Create new Profile</button>
+                <button id="two">Load Profile</button>
+            </div>
+        </div>
+        <!-- 3 -------------------------------------------Login Field-------------------------------------------------------------- -->
+        <div id="form">
+            <div class="login-form">
+                <h3>Welcome to A.T.I Music Maker<br>Login</h3>
+                <div class="inputs">
+                    <div class="input">
+                        <input id="LoginUser"  type="text" placeholder="Username" >
+                        <img src="images/svg/user.svg">
+                    </div>
+                    <div class="input">
+                        <input id="LoginPassword" type="password"  placeholder="Password"  >
+                        <img src="images/svg/pass.svg">
+                    </div>
+                </div>
+                <button id="LoginBtn" value="Sign In">Load your Profile</button>
+            </div>
+        <!-- --------------------------------------------Register Field------------------------------------------------------------- -->
+            <div class="register-form">
+                    <h3>Create a Free Account</h3>
+                <div class="inputs">
+                    <div class="input">
+                        <input id="RegEmail" type="text" placeholder="Email">
+                        <img src="images/svg/mail.svg">
+                    </div>
+                    <div class="input">
+                        <input id="RegUser" type="text" placeholder="Profile name" >
+                        <img src="images/svg/user.svg">
+                    </div>
+                    <div class="input">
+                        <input id="RegPassword" type="password" placeholder="Password" >
+                        <img src="images/svg/pass.svg">
+                    </div>
+                    <button id="RegisterBtn" value="Create your account">Create</button>
+                </div>
+            </div>   
+        </div>
+        <!-- -----------------------------------------------Js file---------------------------------------------------------------  -->
+        <script>require('./resources/javascript/index.js');</script>
+        <script>require('./resources/javascript/reglog.js');</script>
+    </body>
+</html>

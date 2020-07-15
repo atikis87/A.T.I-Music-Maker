@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="copyright" content="Attila Kiss" />
+        <title>A.T.I Music-Maker</title>
+        <meta name="description" content="A.T.I Music-Maker">
+        <meta name="author" content="Attila Kiss">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/mmaker.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/piano.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/hidden.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/options.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/drumPad.css">
+        <!-- --------------------------------------------Icon pack ---------------------------------------------------------------------- -->
+        <script src="https://kit.fontawesome.com/0671710f42.js" crossorigin="anonymous"></script>
+        <!-- -------------------------------------------------------------------------------------- -->
+        <script>window.$ = require('jquery');</script>
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+            const bootstrap = require('bootstrap');  
+        });
+        </script>
+    </head>
+    <body>
+        <!-- --------------------------------------------TOPBAR ------------------------------------------------------------------------  -->
+        <div id="topbar">
+            <div class="btn-group dropright">
+                <div id="header-user" class="btn btn-secondary" readonly></div>
+                    <button type="button" id="dropleft-button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropright</span>
+                    </button>
+                <div class="dropdown-menu">
+                    <button id="logout_makerUser" class="dropdown-item" type="button">Logout</button>
+                </div>
+            </div>
+                <div id="header-logo">A.T.I Music Maker 
+                    <span class="versionFont">1.0.0</span>
+                </div>
+        </div>
+        <!-- -------------------------------------------NAVIGATION MENU ----------------------------------------------------------------- -->
+        <nav class="navbar">
+            <div class="menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a id="clearWindow" href="#" class="nav-link">Clear</a>
+                </li>
+                <!--
+                <li class="nav-item">
+                    <a id="effectsMenu" href="#" class="nav-link">Effects "only the surface"</a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="drumPad" href="#" class="nav-link">DrumPad</a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <a id="loadProject" href="#" class="nav-link">Load Project</a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="saveProject" href="#" class="nav-link">Save Project</a>
+                </li>
+                <!--
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About</a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <a id="exitWindow" href="#" class="nav-link">Exit</a>
+                </li>
+            </ul>
+        </nav>
+            <!-- ----------------------------------------Left side----------------------------------------------------------------------  -->
+        <div id="mix-editor-headers">
+            <div id="tracklist">
+                <div id="mix-editor-headers-actionbar">
+                    <div id="instrument-click" class="roundButton">
+                        <span id="caption">&plus;</span>
+                        <span class="tips"></span>
+                    </div>
+                </div>
+                <div id="zoomGroup">
+                    Zoom-x: <span id="zoomValueX"></span>
+                    <input id="zoom-x" type="range" step="1" min="100" max="600" value="100">
+
+                    Zoom-y: <span id="zoomValueY"></span>
+                    <input id="zoom-y" type="range" step="1" min="100" max="600" value="100">
+                </div>
+
+                <!-- ------------------------------------DRUM MENU----------------------------------------------------------------------  -->
+                <div class="container">
+                    <p class="titleHead">A.T.I Drum Pad</p>
+                    <div class="drum-pad">
+                        <div class="drum-row">
+                            <div class="drumKey" data-key="103">
+                            <p class="letter">N7</p>
+                            <span class="sound">Shaker</span>
+                            </div>
+                            <div class="drumKey" data-key="104">
+                            <p class="letter">N8</p>
+                            <span class="sound">Clap</span>
+                            </div>
+                            <div class="drumKey" data-key="105">
+                            <p class="letter">N9</p>
+                            <span class="sound">Cymbal</span>
+                            </div>
+                        </div>
+
+                        <div class="drum-row">
+                            <div class="drumKey" data-key="100">
+                            <p class="letter">N4</p>
+                            <span class="sound">Tom-hi</span>
+                            </div>
+                            <div class="drumKey" data-key="101">
+                            <p class="letter">N5</p>
+                            <span class="sound">Rim</span>
+                            </div>
+                            <div class="drumKey" data-key="102">
+                            <p class="letter">N6</p>
+                            <span class="sound">Tamb</span>
+                            </div>
+                        </div>
+
+                        <div class="drum-row">
+                            <div class="drumKey" data-key="97">
+                            <p class="letter">N1</p>
+                            <span class="sound">Kick</span>
+                            </div>
+                            <div class="drumKey" data-key="98">
+                            <p class="letter">N2</p>
+                            <span class="sound">Tom-low</span>
+                            </div>
+                            <div class="drumKey" data-key="99">
+                            <p class="letter">N3</p>
+                            <span class="sound">Snare</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <audio data-key="103" src="samplers/sounds/drum-kit-1/shaker.wav"></audio>
+                <audio data-key="104" src="samplers/sounds/drum-kit-1/clap.wav"></audio>
+                <audio data-key="105" src="samplers/sounds/drum-kit-1/cymbal.wav"></audio>
+                <audio data-key="100" src="samplers/sounds/drum-kit-1/tom-hi.wav"></audio>
+                <audio data-key="101" src="samplers/sounds/drum-kit-1/rim.wav"></audio>
+                <audio data-key="102" src="samplers/sounds/drum-kit-1/tamb.wav"></audio>
+                <audio data-key="97" src="samplers/sounds/drum-kit-1/kick.wav"></audio>
+                <audio data-key="98" src="samplers/sounds/drum-kit-1/tom-low.wav"></audio>
+                <audio data-key="99" src="samplers/sounds/drum-kit-1/snare.wav"></audio>
+            </div>
+            <!-- ----------------------------------------studio Field------------------------------------------------------------------- -->
+            <div id="Grid">
+                <div id="gridContainer">
+                    <div id="progressBar"></div>
+                </div>
+            </div> <!-- grid div ende-->
+        </div> <!-- mix editor header div ende-->
+            <!-- ---------------------------------------------Piano--------------------------------------------------------------------- -->
+        <div id="wrap">
+            <div class="controls-container">
+                <div class="mix-editor-button-group">
+                    <!----------------------Checkbox piano letter --------------------------------------------->
+                    <div class="showkeys">
+                        <input type=checkbox class="showKeyboardKeys" checked />Show keys
+                    </div>
+                    <!--  ---------------- Playback container ----------------------------------------- -->
+
+                    <!-- 
+                    <button type="button" id="pauseButton" class="btn btn-outline-warning" title="pause">
+                        <img class="icon-player" src="../../assets/image/playback png/002pause.png">
+                    </button>
+                    -->
+                    <!-- 
+                    <button type="button" id="backwardButton" class="btn btn-outline-success" title="backward"> 
+                        <img class="icon-player" src="../../assets/image/playback png/002backward.png">
+                    </button>
+                        -->
+                    <button type="button" id="stopButton" class="btn btn-outline-secondary" title="stop"> 
+                        <img class="icon-player" src="images/playback png/002stop.png">
+                    </button>
+
+
+                    <button type="button" id="playButton" class="btn btn-outline-primary" title="play/pause"> 
+                        <img class="icon-player" src="images/playback png/002play.png">
+                    </button>
+                    <!-- 
+                    <button type="button" id="forwardButton" class="btn btn-outline-success" title="forward"> 
+                        <img class="icon-player" src="../../assets/image/playback png/002forward.png">
+                    </button>
+                        -->
+
+                    <button type="button" id="recButton" class="btn btn-outline-danger" title="Start Recording">
+                        <img class="icon-player-rec" src="images/playback png/002rec.png">
+                    </button>
+            
+                    <!-- -------- Timer --------------------------------------- -->
+                    <div class="time-display">
+                        <span id="current-time">0</span>
+                    </div>
+
+                    <button type="button" id="undoButton" class="btn btn-outline-primary" title="Remove">
+                        <img class="icon-player" src="images/playback png/002undo.png">
+                    </button>
+
+                    <div class="mix-editor-toolbar-tempo">
+                        <div class="input-tempo-volume">
+                            Volume: <span id="volumeRange"></span>
+                            <input id="volumeTone" type="range" class="volume" min="0" max="100" step="1" value="50"></input>
+                            BPM:  <span id="displayTempoValue"></span>
+                            <input id="tempoRange" type="range" class="tempo" min="40" max="218" value="90"></input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -----------------------------KEYBOARD --------------------------------------------------------------------------------- -->
+            <div octaves="4" class="pianoKeyboard">
+
+                <div id="C2"  data-sound = "C2"  class="key white oct"><k>Y</k></div>
+                <div id="C#2" data-sound = "C#2" class="key black black1 oct"><k>S</k></div>
+                <div id="D2"  data-sound = "D2"  class="key white oct"><k>X</k></div>
+                <div id="D#2" data-sound = "D#2" class="key black black2 oct"><k>D</k></div>
+                <div id="E2"  data-sound = "E2"  class="key white oct"><k>C</k></div>
+
+                <div id="F2"  data-sound = "F2"  class="key white oct"><k>V</k></div>
+                <div id="F#2" data-sound = "F#2" class="key black black3 oct"><k>G</k></div>
+                <div id="G2"  data-sound = "G2"  class="key white oct"><k>B</k></div>
+                <div id="G#2" data-sound = "G#2" class="key black black4 oct"><k>H</k></div>
+                <div id="A2"  data-sound = "A2"  class="key white oct"><k>N</k></div>
+                <div id="A#2" data-sound = "A#2" class="key black black5 oct"><k>J</k></div>
+                <div id="B2"  data-sound = "B2"  class="key white oct"><k>M</k></div>
+
+                <!-- -------------------------------------------------------- -->
+                <div id="C3"  data-sound = "C3"  class="key white"><k>Q</k></div>
+                <div id="C#3" data-sound = "C#3" class="key black black6 oct"><k>2</k></div>
+                <div id="D3"  data-sound = "D3"  class="key white"><k>W</k></div>
+                <div id="D#3" data-sound = "D#3" class="key black black7 oct"><k>3</k></div>
+                <div id="E3"  data-sound = "E3"  class="key white"><k>E</k></div>
+
+                <div id="F3"  data-sound = "F3"  class="key white"><k>R</k></div>
+                <div id="F#3" data-sound = "F#3" class="key black black8 oct"><k>5</k></div>
+                <div id="G3"  data-sound = "G3"  class="key white"><k>T</k></div>
+                <div id="G#3" data-sound = "G#3" class="key black black9 oct"><k>6</k></div>
+                <div id="A3"  data-sound = "A3"  class="key white"><k>Z</k></div>
+                <div id="A#3" data-sound = "A#3" class="key black black10 oct"><k>7</k></div>
+                <div id="B3"  data-sound = "B3"  class="key white"><k>U</k></div>
+
+                <!-- -------------------------------------------------------- -->
+                <div id="C4"  data-sound = "C4"  class="key white oct"><k>I</k></div>
+                <div id="C#4" data-sound = "C#4" class="key black black11 oct"><k>9</k></div>
+                <div id="D4"  data-sound = "D4"  class="key white oct"><k>O</k></div>
+                <div id="D#4" data-sound = "D#4" class="key black black12 oct"><k>Ö</k></div>
+                <div id="E4"  data-sound = "E4"  class="key white oct"><k>P</k></div>
+
+                <div id="F4"  data-sound = "F4"  class="key white oct"><k>&Uuml;</k></div>
+                <div id="F#4" data-sound = "F#4" class="key black black13 oct"><k></k></div>
+                <div id="G4"  data-sound = "G4"  class="key white oct"><k></k></div>
+                <div id="G#4" data-sound = "G#4" class="key black black14 oct"><k></k></div>
+                <div id="A4"  data-sound = "A4"  class="key white oct"><k></k></div>
+                <div id="A#4" data-sound = "A#4" class="key black black15 oct"><k></k></div>
+                <div id="B4"  data-sound = "B4"  class="key white oct"><k></k></div>
+
+                <!-- -------------------------------------------------------- -->
+
+                <div id="C5"  data-sound = "C5"  class="key white oct"><k></k></div>
+                <div id="C#5" data-sound = "C#5" class="key black black16 oct"><k></k></div>
+                <div id="D5"  data-sound = "D5"  class="key white oct"><k></k></div>
+                <div id="D#5" data-sound = "D#5" class="key black black17 oct"><k></k></div>
+                <div id="E5"  data-sound = "E5"  class="key white oct"><k></k></div>
+
+                <div id="F5"  data-sound = "F5"  class="key white oct"><k></k></div>
+                <div id="F#5" data-sound = "F#5" class="key black black18 oct"><k></k></div>
+                <div id="G5"  data-sound = "G5"  class="key white oct"><k></k></div>
+                <div id="G#5" data-sound = "G#5" class="key black black19 oct"><k></k></div>
+                <div id="A5"  data-sound = "A5"  class="key white oct"><k></k></div>
+                <div id="A#5" data-sound = "A#5" class="key black black20 oct"><k></k></div>
+                <div id="B5"  data-sound = "B5"  class="key white oct"><k></k></div>
+
+                <div id="C6"  data-sound = "C6"  class="key white oct"><k></k></div>
+            </div>
+        </div> <!-- Wrap end -->
+        <!-- --------------------------------------HIDDEN INSTRUMENT MENU---------------------------------------------------------------- -->
+        <!-- choose instrument -->
+        <div id="myInstrument" class="instrumentWindow">
+            <!-- Modal content -->
+            <div class="instrument-content">
+                <!-- ------------------ Header ------------------>
+                <header class="modal-header">
+                    <h2>Choose an instrument</h2>
+                <span id="CloseInstrument" class="close">&times;</span>
+                </header>
+                <!-- ------------------ Instrument Container ------------------>
+                <div class="modal-body">
+                    <div class="new-instruments">
+                        <!-- ----------------- piano instrument ---------------------------- -->
+                        <div class="new-types">
+                            <div class="new-type-illustration new-type-background">
+                                <div id="piano-instrument"></div>
+                            </div>
+                            <h3 class="instrument-h3">Piano</h3>
+                            <span>Add Synth tunes for sound</span>
+                        </div>
+                        <!-- ----------------- Violin instrument ---------------------------- -->
+                        <div class="new-types">
+                            <div class="new-type-illustration new-type-background">
+                                <div id="violin-instrument"></div>
+                            </div>
+                            <h3 class="instrument-h3">Violin</h3>
+                            <span>Add violin tunes for sound</span>
+                        </div>
+                        <!-- ----------------- Woodwinds instrument ---------------------------- -->
+                        <div class="new-types">
+                            <div class="new-type-illustration new-type-background">
+                                <div id="woodwind-instrument"></div>
+                            </div>
+                            <h3 class="instrument-h3">Woodwind</h3>
+                            <span>Add Woodwind tunes for sound</span>
+                        </div>
+                        <!-- ----------------- Synth instrument ---------------------------- -->
+                        <div class="new-types">
+                            <div class="new-type-illustration new-type-background">
+                                <div id="synth-instrument"></div>
+                            </div>
+                            <h3 class="instrument-h3">Synthesizer</h3>
+                            <span>Add Synthesizer tunes for sound</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------ Footer ------------------>
+                <div class="modal-footer">
+                <h3>Music is for everyone!</h3>
+                </div>
+            </div>
+        </div>
+        <!-- -------------------------------------------HIDDEN PERCUSSION MENU----------------------------------------------------------- -->
+        <!-- choose instrument -->
+        <div id="myPercussion" class="percussionWindow">
+        
+            <!-- Percussion content -->
+            <div class="percussion-content">
+        <!-- ------------------ Header ------------------>
+            <header class="modal-header">
+                <h2>Choose an Percussion</h2>
+                <span id="ClosePercussion" class="close2">&times;</span>
+            </header>
+        <!-- ------------------ Instrument Container ------------------>
+        
+            <div class="modal-body">
+                <div class="new-instruments">
+                    <!-- ----------------- piano instrument ---------------------------- -->
+                    <div class="new-types">
+                        <div class="new-type-illustration new-type-background">
+                            <div id="kit-percussion"></div>
+                        </div>
+                        <h3 class="instrument-h3">Kit</h3>
+                        <span>Add Kit tunes for sound</span>
+                    </div>
+                    <!-- ----------------- Violin instrument ---------------------------- -->
+                    <div class="new-types">
+                        <div class="new-type-illustration new-type-background">
+                            <div id="conga-percussion"></div>
+                        </div>
+                        <h3 class="instrument-h3">Conga</h3>
+                        <span>Add Conga tunes for sound</span>
+                    </div>
+                    <!-- ----------------- Woodwinds instrument ---------------------------- -->
+                    <div class="new-types">
+                        <div class="new-type-illustration new-type-background">
+                            <div id="electronic-percussion"></div>
+                        </div>
+                        <h3 class="instrument-h3">Electronic-Kit</h3>
+                        <span>Add Electronic-Kit tunes for sound</span>
+                    </div>
+        
+                    <!-- ----------------- ???????? ---------------------------- -->
+                    <div class="new-types">
+                        <div class="new-type-illustration new-type-background">
+                            <div id="electronic-percussion"></div>
+                        </div>
+                        <h3 class="instrument-h3">Electronic-Kit</h3>
+                        <span>Add Electronic-Kit tunes for sound</span>
+                    </div>
+                </div>
+                <!-- ------------------ Footer ------------------>
+                <div class="modal-footer">
+                    <h3>Music is for everyone!</h3>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- ----------------------------------------OPTIONS MENU EFFECTS--------------------------------------------------------------- -->
+        <div class="effectsBoard">
+            <div class="effects-choice-container">
+                <div class="effects-label">A.T.I Music-Maker Effects
+                    <span class="closeWindow">&times;</span>
+                </div>
+                <section class="effect-type">
+
+                    <div class="effect-selections" 
+                        id="Chorus">
+                        <i class="fas fa-power-off" 
+                        id="chorus-power" 
+                        onclick="chorusEffectToggle()"></i> 
+                        <h4>Chorus</h4>
+                        <div class="chorus-slider-container">
+                        <section>
+                            <input type="range" 
+                                min="0" 
+                                max="50" 
+                                value="0" 
+                                step="0.1" 
+                                class="input" 
+                                id="c-frequency">
+                            <label>Frequency</label>
+                        </section>
+                        <section>
+                            <input type="range" 
+                                min="2" 
+                                max="50" 
+                                value="2" 
+                                step="0.1" 
+                                class="input" 
+                                id="c-delay-time">
+                            <label>Delay</label>
+                        </section>
+                        <section>
+                            <input type="range" 
+                                min="1" 
+                                max="10" 
+                                value="1" 
+                                step="0.1" 
+                                class="input" 
+                                id="c-depth">
+                            <label>Depth</label>
+                        </section>
+                        </div>
+                    </div>
+                    <div class="effect-selections" 
+                        id="Tremelo" > 
+                        <i class="fas fa-power-off" 
+                        id="tremolo-power"
+                        onclick="tremoloEffectToggle()"></i> 
+                        <h4>Tremelo</h4>
+                        <div class="tremolo-slider-container">
+                        <section class="two-sliders">
+                            <input type="range" 
+                                min="0" 
+                                max="50" 
+                                value="0" 
+                                step=".1" 
+                                class="input" 
+                                id="tremolo-frequency">
+                            <label>Frequency</label>
+                        </section>
+                        <section class="two-sliders">
+                            <input type="range" 
+                                min="1" 
+                                max="50" 
+                                value="1" 
+                                step="0.1" 
+                                class="input" 
+                                id="tremolo-depth">
+                            <label>Depth</label>
+                        </section>
+                        </div>
+                    </div>
+                    <div class="effect-selections" 
+                        id="Vibrato"> 
+                        <i class="fas fa-power-off"
+                        id="vibrato-power"
+                        onclick="vibratoEffectToggle()"></i> 
+                        <h4>Vibrato</h4>
+                        <div class="vibrato-slider-container">
+                        <section class="two-sliders">
+                            <input type="range" 
+                                min="0" 
+                                max="10" 
+                                value="0" 
+                                step=".1" 
+                                class="input" 
+                                id="vibrato-frequency">
+                            <label>Frequency</label>
+                        </section>
+                        <section class="two-sliders">
+                            <input type="range" 
+                                min="1" 
+                                max="10" 
+                                value="0" 
+                                step="0.1" 
+                                class="input" 
+                                id="vibrato-depth">
+                            <label>Depth</label>
+                        </section>
+                        </div>
+                    </div>
+                    <div class="effect-selections" 
+                        id="Phaser"> 
+                        <i class="fas fa-power-off"
+                        id="phaser-power"
+                        onclick="phaserEffectToggle()"></i> 
+                        <h4>Phaser</h4>
+                        <div class="phaser-slider-container">
+                        <section>
+                            <input type="range" 
+                                min="0" 
+                                max="100" 
+                                value="0" 
+                                step=".1" 
+                                class="input" 
+                                id="phaser-frequency">
+                            <label>Frequency</label>
+                        </section>
+                        <section>
+                            <input type="range" 
+                                min="0" 
+                                max="4" 
+                                value="0" 
+                                step="1" 
+                                class="input" 
+                                id="phaser-octave">
+                            <label>Octaves</label>
+                        </section>
+                        <section>
+                            <input type="range" 
+                                min="0" 
+                                max="2000" 
+                                value="0" 
+                                step="1" 
+                                class="input" 
+                                id="phaser-baseFrequency">
+                            <label>Base</label>
+                        </section>
+                        </div>
+                    </div>
+                    <div class="effect-selections" 
+                        id="Reverb"> 
+                        <i class="fas fa-power-off"
+                        id="reverb-power"
+                        onclick="reverbEffectToggle()"></i> 
+                        <h4>Reverb</h4>
+                        <div class="reverb-slider-container">
+                        <section>
+                            <input type="range" 
+                                min="0" 
+                                max="0.9" 
+                                value="0" 
+                                step=".01" 
+                                class="input" 
+                                id="reverb-room-size">
+                            <label>Room Size</label>
+                        </section>
+                        </div>
+                    </div>
+                    <div class="effect-selections" 
+                        id="Distortion"> 
+                        <i class="fas fa-power-off"
+                        id="distortion-power"
+                        onclick="distortionEffectToggle()"></i> 
+                        <h4>Distortion</h4>
+                        <div class="distortion-slider-container">
+                        <section>
+                            <input type="range" 
+                                min="0" 
+                                max="100" 
+                                value="0" 
+                                step=".1" 
+                                class="input" 
+                                id="distortion">
+                            <label>Distortion</label>
+                        </section>
+                        </div>
+                    </div>
+                    <div class="effect-selections" 
+                        id="BitCrusher"> 
+                        <i class="fas fa-power-off"
+                        id="bitCrusher-power"
+                        onclick="bitCrusherEffectToggle()"></i> 
+                        <h4>BitCrusher</h4>
+                        <div class="bitCrusher-slider-container">
+                        <section>
+                            <input type="range" 
+                                min="1" 
+                                max="8" 
+                                value="1" 
+                                step="1"
+                                class="input" 
+                                id="bitCrusher">
+                            <label>Bit</label>
+                        </section>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- ----------------------------SaveModal------------------------------------------------------- -->
+        <div class="saveModal">
+            <div class="saveModalContainer">
+                <div class="save-label">A.T.I Music Maker
+                    <span class="closeSaveWindow">&times;</span>
+                </div>
+                <section class="save-type">
+                    <label>Add a name your Project</label>
+                    <input type="text" id="savePro" autofocus>
+                    <button id="saveBtn">Click to Save!</button>
+                </section>
+                </div>
+        </div>
+        <!-- ----------------------------LoadModal------------------------------------------------------- -->
+        <div class="loadModal">
+            <div class="loadModalContainer">
+                <div class="load-label">A.T.I Music Maker
+                    <span class="closeLoadWindow">&times;</span>
+                </div>
+                <section class="load-type">
+                    <label>Choose your Project</label>
+                    <select id="loadNameSelect" class="projectList">
+                    </select>
+                    <button id="loadBtn">Click to Load!</button>
+                </section>    
+            </div>
+        </div>
+        <script>require('./resources/javascript/reglog.js');</script>
+        <script>require('./resources/javascript/hidden.js');</script>
+        <script>require('./resources/javascript/drumPad.js');</script>
+        <script>require('./resources/javascript/mmaker.js');</script>
+        <script>require('./resources/javascript/effects.js');</script>
+        <script>require('./resources/javascript/loadSave.js');</script>
+    </body>
+</html>
