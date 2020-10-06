@@ -21,7 +21,7 @@
     "tone": "^13.8.25"
   },
   "devDependencies": {
-    "electron": "^9.1.0",
+    "electron": "^9.3.0",
     "electron-builder": "^22.3.2",
     "electron-rebuild": "^1.10.0"
   },
