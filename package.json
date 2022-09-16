@@ -17,7 +17,7 @@
     "jquery-ui": "^1.13.2",
     "minimist": "^1.2.5",
     "popper.js": "^1.16.1",
-    "sqlite3": "^5.0.0",
+    "sqlite3": "^5.0.3",
     "tone": "^13.8.25"
   },
   "devDependencies": {
